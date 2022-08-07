@@ -45,7 +45,7 @@ int PlayerInput(void)
 	//プレイヤーの入力が正しいか確認する関数
 
 	char input_c[10]; //9文字までは受け付けるようにしている
-	int i = 0, len = 0, num;
+	int i = 0, len, num;
 
 	while (1)
 	{
@@ -210,7 +210,7 @@ int Gomoku_UpRightJudge(int board[][INDEX_NUMBER], int x, int y, int d, int colo
 			i++;
 			j--;
 
-			if (i > INDEX_NUMBER && j <= 0)
+			if (i > INDEX_NUMBER || j <= 0)
 				break;
 		}
 
@@ -225,7 +225,7 @@ int Gomoku_UpRightJudge(int board[][INDEX_NUMBER], int x, int y, int d, int colo
 				i--;
 				j++;
 
-				if (i <= 0 && j > INDEX_NUMBER)
+				if (i < 0 || j >= INDEX_NUMBER)
 					break;
 			}
 		}
@@ -252,7 +252,7 @@ int Gomoku_DownRightJudge(int board[][INDEX_NUMBER], int x, int y, int d, int co
 			i++;
 			j++;
 
-			if (i > INDEX_NUMBER && j <= 0)
+			if (i >= INDEX_NUMBER || j >= INDEX_NUMBER)
 				break;
 		}
 
@@ -267,7 +267,7 @@ int Gomoku_DownRightJudge(int board[][INDEX_NUMBER], int x, int y, int d, int co
 				i--;
 				j--;
 
-				if (i <= 0 && j > INDEX_NUMBER)//(i <= 0 && j <= 0)
+				if (i < 0 || j < 0)
 					break;
 			}
 		}
