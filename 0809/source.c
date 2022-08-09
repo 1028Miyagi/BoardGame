@@ -24,14 +24,14 @@ enum Storn
 
 enum Direction
 {
-	Up,
-	Down,
-	Left,
-	Right,
-	UpRight,
-	DownRight,
-	UpLeft,
-	DownLeft
+	Up, //-1, 0
+	Down, //1, 0
+	Left,//0, -1
+	Right, //0, 1
+	UpRight, //-1, 1
+	DownRight, //1, 1
+	UpLeft, //-1, -1
+	DownLeft //1, -1
 };
 
 enum Put
@@ -204,7 +204,7 @@ int Gomoku_UpRightJudge(int board[][INDEX_NUMBER], int x, int y, int d, int colo
 	{
 		i = y, j = x;
 
-		while (board[i][j] == color) //右上
+		while (board[i][j] == color) //左下
 		{
 			stornJudge++;
 			i++;
@@ -219,7 +219,7 @@ int Gomoku_UpRightJudge(int board[][INDEX_NUMBER], int x, int y, int d, int colo
 			//rowとcolを起点にすると1回分重なるためずらしてからループを回す
 			i = y - 1, j = x + 1;
 
-			while (board[i][j] == color) //左下
+			while (board[i][j] == color) //右上
 			{
 				stornJudge++;
 				i--;
