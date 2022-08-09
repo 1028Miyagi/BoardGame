@@ -210,7 +210,7 @@ int Gomoku_UpRightJudge(int board[][INDEX_NUMBER], int x, int y, int d, int colo
 			i++;
 			j--;
 
-			if (i > INDEX_NUMBER || j <= 0)
+			if (i >= INDEX_NUMBER || j < 0)
 				break;
 		}
 
